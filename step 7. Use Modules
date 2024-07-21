@@ -1,0 +1,7 @@
+**Directory-Structure:**
+
+
+modules/
+  └── virtual-network/
+      ├── main.tf
+      └── variables.tf

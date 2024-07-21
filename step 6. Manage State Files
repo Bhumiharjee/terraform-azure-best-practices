@@ -1,0 +1,11 @@
+**Example_of_configuring_remote_state_in_Azure_Storage:**
+
+
+terraform {
+  backend "azurerm" {
+    resource_group_name  = "tfstate"
+    storage_account_name = "tfstatestorageaccount"
+    container_name       = "tfstate"
+    key                  = "terraform.tfstate"
+  }
+}

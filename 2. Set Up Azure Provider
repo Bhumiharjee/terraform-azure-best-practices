@@ -1,0 +1,44 @@
+### 2. Set Up Azure Provider
+
+Create a new directory for your Terraform configuration and add a file named `main.tf`. Below is a basic example to provision an Azure Virtual Machine:
+
+```hcl
+# Specify the Azure provider
+provider "azurerm" {
+  features {}
+}
+
+# Define a resource group
+resource "azurerm_resource_group" "example" {
+  name     = "example-resources"
+  location = "East US"
+}
+
+# Define an Azure Virtual Network
+resource "azurerm_virtual_network" "example" {
+  name                = "example-vnet"
+  address_space       = ["10.0.0.0/16"]
+  location            = azurerm_resource_group.example.location
+  resource_group_name = azurerm_resource_group.example.name
+}
+
+# Define an Azure Virtual Machine
+resource "azurerm_virtual_machine" "example" {
+  name                  = "example-vm"
+  resource_group_name   = azurerm_resource_group.example.name
+  location              = azurerm_resource_group.example.location
+  size                  = "Standard_DS1_v2"
+  admin_username        = "adminuser"
+  network_interface_ids = [azurerm_network_interface.example.id]
+  os_disk {
+    caching              = "ReadWrite"
+    storage_account_type  = "Premium_LRS"
+    name                  = "myosdisk"
+  }
+  source_image_reference {
+    publisher = "MicrosoftWindowsServer"
+    offer     = "WindowsServer"
+    sku       = "2019-Datacenter"
+    version   = "latest"
+  }
+}

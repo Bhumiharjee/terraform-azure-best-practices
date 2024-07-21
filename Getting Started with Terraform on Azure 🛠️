@@ -1,0 +1,13 @@
+
+### 1. Install Terraform
+
+**Windows:**
+1. Download the [Terraform binary](https://www.terraform.io/downloads.html).
+2. Add the binary to your system PATH.
+
+**macOS:**
+1. Use Homebrew: `brew install terraform`.
+
+**Linux:**
+1. Download the binary from the [official Terraform website](https://www.terraform.io/downloads.html).
+2. Add it to your PATH.

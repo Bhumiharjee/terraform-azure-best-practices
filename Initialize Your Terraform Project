@@ -1,0 +1,3 @@
+Run terraform init to initialize your Terraform project and download the necessary Azure provider plugin.
+
+terraform init

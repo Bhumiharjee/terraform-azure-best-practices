@@ -1,7 +1,28 @@
-**Directory-Structure:**
+1. Directory-Structure:
 
 
 modules/
   └── virtual-network/
       ├── main.tf
       └── variables.tf
+
+
+2. Module Definition (modules/virtual-network/main.tf):
+
+resource "azurerm_virtual_network" "this" {
+  name                = var.name
+  address_space       = var.address_space
+  location            = var.location
+  resource_group_name = var.resource_group_name
+}
+
+
+3. Using the Module in Your Main Configuration (main.tf):
+
+module "vnet" {
+  source             = "./modules/virtual-network"
+  name                = "example-vnet"
+  address_space       = ["10.0.0.0/16"]
+  location            = azurerm_resource_group.example.location
+  resource_group_name = azurerm_resource_group.example.name
+}

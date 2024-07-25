@@ -26,7 +26,7 @@ Welcome to the ultimate guide on using Terraform with Azure. This repository pro
 4. **Disaster Recovery:** Quickly replicate your Azure infrastructure in different regions to ensure high availability and disaster recovery.
 5. **Compliance and Security:** Ensure infrastructure adheres to organizational standards and compliance requirements by codifying configurations.
 
-## Best Practices for Terraform with Azure 🛡️
+### Best Practices for Terraform with Azure 🛡️
 
 - **Use Modules:** Encapsulate and reuse configurations with modules to avoid redundancy and maintain organization.
 
